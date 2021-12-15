@@ -17,4 +17,4 @@ docker run --rm --network=host \
 {% endfor %}
                 -v {{ neonevm_solana_keypair }}:/root/.config/solana/id.json \
                 --name neonevm \
-                neonlabsorg/proxy:v0.4.0
+                neonlabsorg/proxy:v{{ neonversion }}

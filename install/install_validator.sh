@@ -3,7 +3,7 @@
 
 echo "|||__________________________________________________|||"
 echo "|||                                                  |||"
-echo "|||       ELAGABAL X NEON OPERATOR INSTALLING        |||"
+echo "|||  ELAGABAL X NODES CREW NEON OPERATOR INSTALLING  |||"
 echo "|||      AUTOMATED ANSIBLE SCRIPT FOR COMMUNITY      |||"
 echo "|||__________________________________________________|||"
 
@@ -62,16 +62,16 @@ install_operator () {
   usermod -aG docker $USER
   systemctl enable docker
 
-  #echo "Downloading Solana validator manager version $sv_manager_version"
-  #cmd="https://github.com/mfactory-lab/sv-manager/archive/refs/tags/$sv_manager_version.zip"
-  #echo "starting $cmd"
-  #curl -fsSL "$cmd" --output sv_manager.zip
-  #echo "Unpacking"
-  #unzip ./sv_manager.zip -d .
+  echo "Downloading Neon operator manager"
+  cmd="https://github.com/Marcus718/neon_manager/archive/refs/heads/main.zip"
+  echo "starting $cmd"
+  curl -fsSL "$cmd" --output neon_manager.zip
+  echo "Unpacking"
+  unzip ./neon_manager.zip -d .
 
-  mv sv-manager* sv_manager
-  rm ./sv_manager.zip
-  cd ./sv_manager || exit
+  mv nevm-manager* neon_manager
+  rm ./neon_manager.zip
+  cd ./neon_manager || exit
   cp -r ./inventory_example ./inventory
 
   shellcheck disable=SC2154
@@ -79,7 +79,7 @@ install_operator () {
   ls -lah ./
 
 #Сюда нужно указать роль в которой будут все эти переменные. 
-  ansible-playbook --connection=local --inventory ./inventory/$inventory --limit localhost  playbooks/install.yaml --extra-vars "{ \
+  ansible-playbook --connection=local playbooks/install.yaml --extra-vars "{ \
   'neonevm_user_var':'$neonevm_user', \
   'neonevm_network_var': '$neonevm_network', \
   'rpc_var': '$neonevm_solana_rpc', \
@@ -107,12 +107,11 @@ done
 
 sv_manager_version=${sv_manager_version:-latest}
 
-echo "installing sv manager version $sv_manager_version"
 
 echo "This script will bootstrap a NEON operator. Proceed?"
 select yn in "Yes" "No"; do
     case $yn in
-        Yes ) test "$sv_manager_version" "$extra_vars" "$solana_version" "$tags"; break;;
+        Yes ) install_operator break;;  
         No ) echo "Aborting install. No changes will be made."; exit;;
     esac
 done
