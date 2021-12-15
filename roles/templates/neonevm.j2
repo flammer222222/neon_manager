@@ -1,0 +1,20 @@
+#!/bin/bash
+
+set -x
+
+docker run --rm --network=host \
+{% if neonevm_chain_id is defined or neonevm_network in neonevm_chains %}
+                -e NEON_CHAIN_ID={{ neonevm_chain_id|default(neonevm_chains[neonevm_network]) }} \
+                -e POSTGRES_DB={{ postgres_db }} \
+                -e POSTGRES_USER={{ postgres_user }} \
+                -e POSTGRES_PASSWORD={{ postgres_password }} \
+{% endif %}
+{% if neonevm_cli_timeout is defined and neonevm_cli_timeout > 0 %}
+                -e NEON_CLI_TIMEOUT={{ neonevm_cli_timeout}} \
+{% endif %}
+{% for key,val in neonevm_env.items() %}
+                -e {{ key }}={{ val }} \
+{% endfor %}
+                -v {{ neonevm_solana_keypair }}:/root/.config/solana/id.json \
+                --name neonevm \
+                neonlabsorg/proxy:v0.4.0

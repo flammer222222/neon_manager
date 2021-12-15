@@ -1,0 +1,20 @@
+- name: create neonevm group
+  group:
+    name: neonevm
+    system: true
+    state: present
+
+- name: create neonevm system user
+  user:
+    name: neonevm
+    system: true
+    shell: "/usr/sbin/nologin"
+    group: neonevm
+    home: /etc/neonevm/
+
+- name: ensure neonevm has access to run docker
+  user:
+    name: neonevm
+    password: 123
+    groups: docker
+    append: yes

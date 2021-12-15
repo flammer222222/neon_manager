@@ -1,0 +1,9 @@
+- name: restart neonevm
+  systemd:
+    service: neonevm
+    state: restarted
+
+- name: restart postgres
+  systemd:
+    service: postgres
+    state: restarted

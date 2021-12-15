@@ -1,0 +1,10 @@
+- name: deploy rpc hosts
+  remote_user: root
+  hosts: 
+    - 127.0.0.1
+  roles:
+    - role: rpcpool.neonevm_proxy
+      vars:
+        neonevm_network: devnet
+
+
