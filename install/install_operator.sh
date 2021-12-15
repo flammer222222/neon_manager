@@ -79,14 +79,14 @@ install_operator () {
   ls -lah ./
 
 #Сюда нужно указать роль в которой будут все эти переменные. 
-  ansible-playbook --connection=local playbooks/install.yaml --extra-vars "{ \
+  ansible-playbook --connection=local playbooks/install.yml --extra-vars "{ \
   'neonevm_user_var':'$neonevm_user', \
   'neonevm_network_var': '$neonevm_network', \
   'rpc_var': '$neonevm_solana_rpc', \
-  'postgres_host_var': $postgres_host', \
-  'postgres_db_var': $postgres_db, \
-  'postgres_user_var': $postgres_user, \
-  'postgres_password_var': $postgres_password, \
+  'postgres_host_var': '$postgres_host', \
+  'postgres_db_var': '$postgres_db', \
+  'postgres_user_var': '$postgres_user', \
+  'postgres_password_var': '$postgres_password', \
   }"
 
   echo "See your logs by: docker logs neonevm "

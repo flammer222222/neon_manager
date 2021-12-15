@@ -3,7 +3,9 @@
   hosts: 
     - 127.0.0.1
   roles:
-    - role: rpcpool.neonevm_proxy
+    - configure_ubuntu
+    - solana_cli
+    - neon_install
       vars:
         neonevm_network: devnet
         neonevm_user: neon-proxy
