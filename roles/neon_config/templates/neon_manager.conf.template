@@ -1,0 +1,9 @@
+{
+"neonevm_user": "{{ hostvars[inventory_hostname]["neonevm_user"] }}",
+"neonevm_network": "{{ hostvars[inventory_hostname]["neonevm_network"] }}",
+"neonevm_solana_rpc": "{{ hostvars[inventory_hostname]["neonevm_solana_rpc"] }}",
+"postgres_host": "{{ hostvars[inventory_hostname]["postgres_host"] }}",
+"postgres_db": "{{ hostvars[inventory_hostname]["postgres_db"] }}",
+"postgres_user": "{{ hostvars[inventory_hostname]["postgres_user"] }}",
+"postgres_password": "{{ hostvars[inventory_hostname]["postgres_password"] }}"
+}

@@ -6,14 +6,6 @@
     - configure_ubuntu
     - solana_cli
     - neon_install
-  vars:
-    neonevm_network: devnet
-    neonevm_user: neon-proxy
-    neonevm_solana_rpc: devnet
-    postgres_host: localhost
-    postgres_db: neon-db
-    postgres_user: neon-proxy
-    postgres_password: neon-proxy-pass
 
 
 
