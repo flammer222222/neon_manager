@@ -5,7 +5,7 @@
 - name: update solana
   shell: "solana-install init {{ solana_version }}"
   become: yes
-  become_user: "{{ solana_user }}"
+  become_user: root
   environment:
     PATH: "{{ solana_home }}/.local/share/solana/install/active_release/bin"
   tags:
