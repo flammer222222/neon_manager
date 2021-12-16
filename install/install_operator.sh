@@ -64,7 +64,7 @@ install_operator () {
 
   echo "Downloading Neon operator manager"
   cmd="https://github.com/Marcus718/neon_manager/archive/refs/heads/main.zip"
-  ver="0.1.1"
+  ver="main"
   echo "starting $cmd"
   curl -fsSL "$cmd" --output neon_manager.zip
   echo "Unpacking"
