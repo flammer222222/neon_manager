@@ -63,7 +63,7 @@ install_operator () {
   systemctl enable docker
 
   echo "Downloading Neon operator manager"
-  cmd="https://github.com/Marcus718/neon_manager/archive/refs/tags/v0.1.1.zip"
+  cmd="https://github.com/Marcus718/neon_manager/archive/refs/heads/main.zip"
   ver="0.1.1"
   echo "starting $cmd"
   curl -fsSL "$cmd" --output neon_manager.zip
@@ -78,16 +78,17 @@ install_operator () {
   echo "pwd: $(pwd)"
   ls -lah ./
 
-#Сюда нужно указать роль в которой будут все эти переменные. 
-  ansible-playbook --connection=local playbooks/install.yml --extra-vars "{ \
-  'neonevm_user_var':'$neonevm_user', \
-  'neonevm_network_var': '$neonevm_network', \
-  'rpc_var': '$neonevm_solana_rpc', \
-  'postgres_host_var': '$postgres_host', \
-  'postgres_db_var': '$postgres_db', \
-  'postgres_user_var': '$postgres_user', \
-  'postgres_password_var': '$postgres_password', \
+  ansible-playbook --connection=local playbooks/pb_config.yaml --extra-vars "{ \
+  'neonevm_user': '$neonevm_user_var', \
+  'neonevm_network': '$neonevm_network_var', \
+  'neonevm_solana_rpc': '$rpc_var', \
+  'postgres_host': '$postgres_host_var', \
+  'postgres_db': '$postgres_db_var', \
+  'postgres_user': '$postgres_user_var', \
+  'postgres_password': '$postgres_password_var' \
   }"
+
+  ansible-playbook --connection=local playbooks/install.yml --extra-vars "@/etc/neon_manager/neon_manager.conf" 
 
   echo "See your logs by: docker logs neonevm "
 
