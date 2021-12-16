@@ -70,7 +70,7 @@ install_operator () {
   echo "Unpacking"
   unzip ./neon_manager.zip -d .
 
-  mv nevm-manager-$ver* neon_manager
+  mv neon_manager-$ver* neon_manager
   rm ./neon_manager.zip
   cd ./neon_manager || exit
   

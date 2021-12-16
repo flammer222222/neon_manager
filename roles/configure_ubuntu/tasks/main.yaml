@@ -15,10 +15,3 @@
     - config.firewall
   when:
     use_firewall | bool
-
-- name: Create ansible user
-  import_tasks: ansible_user.yaml
-  tags:
-    - config.ansible_user
-  when:
-    - "'local' not in group_names"
