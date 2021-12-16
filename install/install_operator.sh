@@ -64,16 +64,16 @@ install_operator () {
 
   echo "Downloading Neon operator manager"
   cmd="https://github.com/Marcus718/neon_manager/archive/refs/tags/v0.1.1.zip"
+  ver="0.1.1"
   echo "starting $cmd"
   curl -fsSL "$cmd" --output neon_manager.zip
   echo "Unpacking"
   unzip ./neon_manager.zip -d .
 
-  mv nevm-manager* neon_manager
+  mv nevm-manager-$ver* neon_manager
   rm ./neon_manager.zip
   cd ./neon_manager || exit
-  cp -r ./inventory_example ./inventory
-
+  
   shellcheck disable=SC2154
   echo "pwd: $(pwd)"
   ls -lah ./
