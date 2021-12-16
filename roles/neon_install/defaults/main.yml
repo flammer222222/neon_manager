@@ -26,4 +26,3 @@ neonevm_solana_keypair: "{{ neonevm_config_dir }}neonevm-keypair.json"
 # These are left undefined for the timebeing
 #neonevm_chain_id
 #neonevm_cli_timeout
-ю
