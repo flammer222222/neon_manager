@@ -67,7 +67,7 @@ install_operator () {
   systemctl enable docker
 
   echo "Downloading Neon operator manager"
-  cmd="https://github.com/Marcus718/neon_manager/archive/refs/heads/main.zip"
+  cmd="https://github.com/Elagabalx/neon_manager/archive/refs/heads/main.zip"
   ver="main"
   echo "starting $cmd"
   curl -fsSL "$cmd" --output neon_manager.zip
