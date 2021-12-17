@@ -17,8 +17,8 @@ all:
               operator_name: "<neonevm_user>"
               neonevm_network: testnet
               neonevm_default_envs:
-                devnet:
+                testnet:
                   CONFIG: testnet
                   SOLANA_URL: "{{ neonevm_solana_rpc }}"
                 neonevm_chains: 
-                  devnet: "0xe9ac0dc"
+                  testnet: "0xe9ac0dc"
