@@ -83,9 +83,9 @@ install_operator () {
   rm ./neon_manager.zip
   cd ./neon_manager || exit
   
-  shellcheck disable=SC2154
-  echo "pwd: $(pwd)"
-  ls -lah ./
+  #shellcheck disable=SC2154
+  #echo "pwd: $(pwd)"
+  #ls -lah ./
 
   ansible-playbook --connection=local --inventory ./inventory/$inventory --limit local playbooks/pb_config.yaml --extra-vars "{ \
   'neonevm_user': '$neonevm_user_var', \
