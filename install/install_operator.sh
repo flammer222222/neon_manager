@@ -10,7 +10,7 @@ echo "|||__________________________________________________|||"
 install_operator () {
 
   echo "### Which net you wnat to join? ###"
-  select cluster in "mainnet-beta" "testnet" "devnet"; do
+  select cluster in "testnet" "devnet"; do
       case $cluster in
           testnet ) inventory="testnet.yaml"; break;;
           devnet ) inventory="devnet.yaml"; break;;

@@ -13,5 +13,3 @@
   import_tasks: firewall.yaml
   tags:
     - config.firewall
-  when:
-    use_firewall | bool
