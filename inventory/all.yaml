@@ -1,8 +1,9 @@
 ---
 
 #neon_config
+neonevm_user: neonevm
 neonevm_version: v0.4.0
-neonevm_solana_rpc: 
+neonevm_solana_rpc: localhost
 neonevm_network: devnet
 neonevm_default_envs:
   testnet:
@@ -20,16 +21,18 @@ neonevm_config_dir: /etc/neonevm/
 postgres_config_dir: /etc/postgres/
 neonevm_solana_keypair: "{{ neonevm_config_dir }}neonevm-keypair.json"
 
+#postgres
+postgres_host: localhost
+postgres_db: neon-db
+postgres_user: neon-proxy
+postgres_password: neon-proxy-pass
+
 #solana_config
 solana_version: 1.8.11
 solana_rpc_port: 8899
 open_solana_ports_start: 8000
 open_solana_ports_end: 10000
 solana_home: "/home/solana"
-
-
-
-
 
 # These are left undefined for the timebeing
 #neonevm_chain_id
