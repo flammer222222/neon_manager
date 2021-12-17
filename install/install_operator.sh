@@ -9,6 +9,15 @@ echo "|||__________________________________________________|||"
 
 install_operator () {
 
+  echo "### Which net you wnat to join? ###"
+  select cluster in "mainnet-beta" "testnet" "devnet"; do
+      case $cluster in
+          mainnet-beta ) inventory="mainnet.yaml"; break;;
+          testnet ) inventory="testnet.yaml"; break;;
+          devnet ) inventory="devnet.yaml"; break;;
+      esac
+  done
+
   echo "Please enter a name for your operator: "
   read neonevm_user_var
   echo "Please enter a config network (devnet, testnet, mainnet): "
@@ -78,7 +87,7 @@ install_operator () {
   echo "pwd: $(pwd)"
   ls -lah ./
 
-  ansible-playbook --connection=local playbooks/pb_config.yaml --extra-vars "{ \
+  ansible-playbook --connection=local --inventory ./inventory/$inventory --limit local playbooks/pb_config.yaml --extra-vars "{ \
   'neonevm_user': '$neonevm_user_var', \
   'neonevm_network': '$neonevm_network_var', \
   'neonevm_solana_rpc': '$rpc_var', \
@@ -88,7 +97,7 @@ install_operator () {
   'postgres_password': '$postgres_password_var' \
   }"
 
-  ansible-playbook --connection=local playbooks/install.yml --extra-vars "@/etc/neon_manager/neon_manager.conf" 
+  ansible-playbook --connection=local --inventory ./inventory/$inventory --limit local playbooks/install.yml --extra-vars "@/etc/neon_manager/neon_manager.conf" 
 
   echo "See your logs by: docker logs neonevm "
 
