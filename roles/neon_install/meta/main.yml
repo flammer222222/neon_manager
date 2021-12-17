@@ -1,7 +1,7 @@
 galaxy_info:
-  author: Linus Kendall
-  description: Neon EVM proxy configuration
-  company: Triton One
+  author: Marcus Aurelius
+  description: Neon automated Install
+  company: ElagabalX
   role_name: neonevm_proxy
 
   # If the issue tracker for your role is not on github, uncomment the
