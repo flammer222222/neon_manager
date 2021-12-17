@@ -4,7 +4,7 @@ After=docker.service
 Requires=docker.service
  
 [Service]
-User=neonevm
+User={{ neonevm_user }}
 Group=neonevm
 PermissionsStartOnly=true
 TimeoutStartSec=0
