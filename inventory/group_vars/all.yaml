@@ -22,7 +22,6 @@ postgres_config_dir: /etc/postgres/
 neonevm_solana_keypair: "{{ neonevm_config_dir }}neonevm-keypair.json"
 
 #postgres
-postgres_host: localhost
 postgres_db: neon-db
 postgres_user: neon-proxy
 postgres_password: neon-proxy-pass

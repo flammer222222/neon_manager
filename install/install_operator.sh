@@ -20,12 +20,8 @@ install_operator () {
 
   echo "Please enter a name for your operator: "
   read neonevm_user_var
-  echo "Please enter a config network (devnet, testnet, mainnet): "
-  read neonevm_network_var
   echo "Enter solana RPC endpoints: " 
   read rpc_var
-  echo "Enter network for postgres data base (localhost in case): "
-  read postgres_host_var
   echo "Enter postgres database name: "
   read postgres_db_var
   echo "Enter postgres user: " 
@@ -89,9 +85,7 @@ install_operator () {
 
   ansible-playbook --connection=local --inventory ./inventory/$inventory --limit local playbooks/pb_config.yaml --extra-vars "{ \
   'neonevm_user': '$neonevm_user_var', \
-  'neonevm_network': '$neonevm_network_var', \
   'neonevm_solana_rpc': '$rpc_var', \
-  'postgres_host': '$postgres_host_var', \
   'postgres_db': '$postgres_db_var', \
   'postgres_user': '$postgres_user_var', \
   'postgres_password': '$postgres_password_var' \
