@@ -14,4 +14,11 @@ all:
           hosts:
             localhost:
               #any var from group vars:
-              validator_name: "<neonevm_user>"
+              operator_name: "<neonevm_user>"
+              neonevm_network: devnet
+              neonevm_default_envs:
+                devnet:
+                  CONFIG: devnet
+                  SOLANA_URL: "{{ neonevm_solana_rpc }}"
+                neonevm_chains: 
+                  devnet: "0xe9ac0ce"

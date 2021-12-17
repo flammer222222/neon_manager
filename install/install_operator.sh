@@ -12,7 +12,6 @@ install_operator () {
   echo "### Which net you wnat to join? ###"
   select cluster in "mainnet-beta" "testnet" "devnet"; do
       case $cluster in
-          mainnet-beta ) inventory="mainnet.yaml"; break;;
           testnet ) inventory="testnet.yaml"; break;;
           devnet ) inventory="devnet.yaml"; break;;
       esac
