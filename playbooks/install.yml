@@ -1,7 +1,7 @@
 - name: deploy rpc hosts
   remote_user: root
   hosts: 
-    - 127.0.0.1
+    - all
   roles:
     - configure_ubuntu
     - solana_cli
