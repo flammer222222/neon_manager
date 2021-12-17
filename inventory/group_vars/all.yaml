@@ -4,7 +4,9 @@
 neonevm_user: neonevm
 neonevm_version: v0.4.0
 neonevm_solana_rpc: localhost
+
 neonevm_network: devnet
+
 neonevm_default_envs:
   testnet:
     CONFIG: testnet
@@ -16,6 +18,7 @@ neonevm_chains:
   testnet: "0xe9ac0dc"
   devnet: "0xe9ac0ce"
   mainnet: "0xe9ac0d6"
+  
 neonevm_env: "{{ neonevm_default_envs[neonevm_network] }}"
 neonevm_config_dir: /etc/neonevm/
 postgres_config_dir: /etc/postgres/
