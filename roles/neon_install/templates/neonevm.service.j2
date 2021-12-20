@@ -4,10 +4,12 @@ After=docker.service
 Requires=docker.service
  
 [Service]
+User={{ neonevm_user }}
+Group=neonevm
 PermissionsStartOnly=true
 TimeoutStartSec=0
 ExecStartPre=-/usr/bin/docker stop neonevm
-ExecStartPre=-/usr/bin/docker rm neonevm -f
+ExecStartPre=-/usr/bin/docker rm neonevm
 ExecStartPre=/usr/bin/docker pull neonlabsorg/proxy:{{ neonevm_version }}
 ExecStart=/usr/local/bin/neonevm
 
