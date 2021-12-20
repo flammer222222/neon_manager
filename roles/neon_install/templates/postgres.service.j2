@@ -5,16 +5,19 @@ Requires=docker.service
  
 [Service]
 User={{ neonevm_user }}
-Group=docker
+Group=neonevm
+PermissionsStartOnly=true
 RestartSec=10
 Restart=on-failure
 ExecStartPre=-/usr/bin/docker stop postgres
-ExecStartPre=-/usr/bin/docker rm postgres
+ExecStartPre=-/usr/bin/docker rm postgres -f
 ExecStartPre=/usr/bin/docker pull postgres:14.0
-ExecStop=/usr/bin/docker stop postgres
+ExecStart=/usr/local/bin/postgres
 
 SyslogIdentifier=postgres
 KillMode=process
+
+WorkingDirectory={{ postgres_config_dir }}
 
 [Install]
 WantedBy=multi-user.target
