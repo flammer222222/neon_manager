@@ -9,7 +9,7 @@
   tags:
     - config.cpu
 
-- name: Config firewall
-  import_tasks: firewall.yaml
-  tags:
-    - config.firewall
+# - name: Config firewall
+#   import_tasks: firewall.yaml
+#   tags:
+#     - config.firewall
