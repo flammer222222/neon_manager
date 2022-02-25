@@ -43,7 +43,9 @@ install_operator () {
 
   echo "Installing ansible, curl, unzip..."
   $pkg_manager install ansible curl unzip --yes
-
+  echo "Installing postgresql"
+  $pkg_manager install postgresql postgresql-contrib --yes
+  
   ansible-galaxy collection install ansible.posix
   ansible-galaxy collection install community.general  
 
