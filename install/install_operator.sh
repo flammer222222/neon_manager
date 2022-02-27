@@ -65,6 +65,7 @@ install_operator () {
 
 sudo $pkg_manager install docker-ce docker-ce-cli containerd.io
 sudo $pkg_manager install postgresql
+sudo /etc/init.d/postgresql restart
 
   # Linux post-install
   groupadd docker
